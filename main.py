@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 import utils
 from orient import rotate
-from treshold import treshold_between_peaks
+from threshold import threshold_between_peaks
 import numpy as np
 
 parser = ArgumentParser()
@@ -37,7 +37,7 @@ points = np.stack([x,y,z]).T
 x, y, z = utils.check_sign(points, ref_normal)
 
 # Binarize data (resulting into a b/w image)
-binarizing = treshold_between_peaks(z)
+binarizing = threshold_between_peaks(z)
 z_mask = binarizing.get_masked()
 print("Point cloud binarized.")
 

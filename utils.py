@@ -7,21 +7,21 @@ def load_obj(path: str, filename: str):
         obj = pywavefront.Wavefront(f"{path}/{filename}.obj")
         return np.array(obj.vertices).T[:3].T
 
-def exclude_outliers(z, treshold = 3):
+def exclude_outliers(z, threshold = 3):
         zscores = np.abs(zscore(z))
-        keep_idx = (zscores < treshold).nonzero()[0]
+        keep_idx = (zscores < threshold).nonzero()[0]
         return keep_idx
 
 def reduce_data(x, y, z):
-        keep_idx = exclude_outliers(z, treshold = 3)
+        keep_idx = exclude_outliers(z, threshold = 3)
         x = x[keep_idx]
         y = y[keep_idx]
         z = z[keep_idx]
         return x, y, z
 
-def binarize(z, treshold, p1, p2):
-        # return a (binarized) mask of points above (white) and below (black) the treshold
-        return z < treshold
+def binarize(z, threshold, p1, p2):
+        # return a (binarized) mask of points above (white) and below (black) the threshold
+        return z < threshold
 
 def rotation_matrix(axis, theta):
         a = np.cos(theta / 2.0)

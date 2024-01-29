@@ -3,9 +3,9 @@ from scipy.stats import gaussian_kde as KDE
 from scipy.signal import find_peaks
 from utils import binarize
 
-class treshold_between_peaks:
+class threshold_between_peaks:
     def __init__(self, z):
-        self.name = "Get the treshold value for binarization purposes through the estimate of the bimodal distribution in the data."
+        self.name = "Get the threshold value for binarization purposes through the estimate of the bimodal distribution in the data."
         self.z = z
 
     def __str__(self):
@@ -38,7 +38,7 @@ class treshold_between_peaks:
         t1 = np.mean(self.z)
         t2 = np.mean([self.p1, self.p2])
         if self.p2 < self.p1:
-            treshold = np.mean([t1, t2, self.p2])
+            threshold = np.mean([t1, t2, self.p2])
         else:
-            treshold = t1
-        return binarize(self.z, treshold, self.p1, self.p2)
+            threshold = t1
+        return binarize(self.z, threshold, self.p1, self.p2)
