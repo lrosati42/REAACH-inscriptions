@@ -1,6 +1,6 @@
 This is the official implementation of the processing pipeline described in the paper 
 ### "Between image and text: automatic image processing for character recognition in historical inscriptions".
-
+([Reference](https://doi.org/10.1007/978-3-031-62963-1_6))
 
 The code is tested to work in Linux with Python 3.12.1 and the minimal libraries necessary to run the code can be installed creating a conda environment from the file _environment.yml_
 
